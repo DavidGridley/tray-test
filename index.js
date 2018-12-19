@@ -71,19 +71,19 @@ function calculateRoute(
 }
 
 function checkDirtPatches(dirtPatches, hooverRoute) {
-  let cleanedDirtPatches = [];
   let numberOfPatchesCleaned = 0;
   const hooverEndPos = hooverRoute[hooverRoute.length - 1];
   hooverRoute.forEach(routePoint => {
     dirtPatches.forEach(dirtPatch => {
       if (dirtPatch[0] === routePoint[0] && dirtPatch[1] === routePoint[1]) {
+        dirtPatches.splice(dirtPatches.indexOf(dirtPatch), 1);
         numberOfPatchesCleaned += 1;
       }
     });
   });
   console.log(hooverRoute);
   console.log(hooverEndPos);
-  console.log(cleanedDirtPatches);
+  console.log(numberOfPatchesCleaned);
 }
 
 fetchInput();
