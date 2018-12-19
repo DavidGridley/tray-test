@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/DavidGridley/tray-test#readme",
   "dependencies": {
-    "file-system": "^2.2.2"
+    "file-system": "^2.2.2",
+    "util": "^0.11.1"
   }
 }
