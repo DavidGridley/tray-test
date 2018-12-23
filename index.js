@@ -68,6 +68,7 @@ function calculateRoute(
     }
   });
   checkDirtPatches(dirtPatches, hooverRoute);
+  return hooverRoute;
 }
 
 function checkDirtPatches(dirtPatches, hooverRoute) {
@@ -81,9 +82,13 @@ function checkDirtPatches(dirtPatches, hooverRoute) {
       }
     });
   });
-  console.log(hooverRoute);
   console.log(hooverEndPos);
   console.log(numberOfPatchesCleaned);
 }
 
 fetchInput();
+
+module.exports = {
+  calculateRoute,
+  checkDirtPatches
+};
