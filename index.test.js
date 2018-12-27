@@ -1,4 +1,22 @@
-const { calculateRoute, checkDirtPatches } = require("./index");
+const {
+  seperateVariables,
+  calculateRoute,
+  checkDirtPatches
+} = require("./index");
+
+describe("seperateVariables", () => {
+  test("seperates values correctly with no dirt patches", () => {
+    const inputArray = ["4 3", "0 1", "NNWWWWEESSS"];
+    const result = seperateVariables(inputArray);
+    const expectedResult = {
+      roomDimensions: [4, 3],
+      hooverStartPos: [0, 1],
+      dirtPatches: [],
+      hooverDirections: ["N", "N", "W", "W", "W", "W", "E", "E", "S", "S", "S"]
+    };
+    expect(result).toEqual(expectedResult);
+  });
+});
 
 describe("calculateRoute", () => {
   test("input does not exceed room boundaries", () => {
@@ -19,7 +37,31 @@ describe("calculateRoute", () => {
       [3, 0],
       [3, 0]
     ];
-    const result = calculateRoute(roomDimentions, hooverStartPos, dirtPatches, hooverDirections);
+    const result = calculateRoute(
+      roomDimentions,
+      hooverStartPos,
+      dirtPatches,
+      hooverDirections
+    );
     expect(result).toEqual(expectedResult);
   });
+});
+
+describe("checkDirtPatches", () => {
+  test("does not count dirt patches again once cleaned", () => {
+    const dirtPatches = [[2, 3], [3, 3], [3, 0]];
+    const hooverRoute = [
+      [0, 3],
+      [1, 3],
+      [2, 3],
+      [3, 3],
+      [2, 3],
+      [3, 3],
+      [3, 2],
+      [3, 1],
+      [3, 0],
+      [3, 1],
+      [3, 0],
+    ];
+  })
 })

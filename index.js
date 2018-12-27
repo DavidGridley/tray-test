@@ -19,10 +19,17 @@ function seperateVariables(inputArray) {
   const hooverStartPos = inputArray[1].split(" ").map(value => parseInt(value));
   const dirtPatches = inputArray
     .slice(2, inputArray.length - 1)
-    .map(patch => patch.split(" "))
-    .map(coordinate => coordinate.map(value => parseInt(value)));
+    .map(patch => patch.split(" ")
+    .map(coordinate => parseInt(coordinate)));
   const hooverDirections = inputArray[inputArray.length - 1].split("");
   calculateRoute(roomDimensions, hooverStartPos, dirtPatches, hooverDirections);
+  return {
+    roomDimensions,
+    hooverStartPos,
+    dirtPatches,
+    hooverDirections
+  };
+  
 }
 
 function calculateRoute(
@@ -84,11 +91,13 @@ function checkDirtPatches(dirtPatches, hooverRoute) {
   });
   console.log(hooverEndPos);
   console.log(numberOfPatchesCleaned);
+  return numberOfPatchesCleaned;
 }
 
 fetchInput();
 
 module.exports = {
+  seperateVariables,
   calculateRoute,
   checkDirtPatches
 };
