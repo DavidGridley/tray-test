@@ -63,5 +63,8 @@ describe("checkDirtPatches", () => {
       [3, 1],
       [3, 0],
     ];
+    const result = checkDirtPatches(dirtPatches, hooverRoute);
+    const expectedResult = 3;
+    expect(result).toBe(expectedResult);
   })
 })
