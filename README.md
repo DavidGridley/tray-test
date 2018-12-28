@@ -16,7 +16,7 @@ This is a technical test for Tray.io. The task was to take a text file, stored i
 
 - It was fun getting to learn how to read a local text file, I used [File System](https://nodejs.org/api/fs.html) to read the file. 
 
-- I opted to use the asynchronous version of [File System's .readFile](https://nodejs.org/api/fs.html#fs_fs_readfile_path_options_callback) in order to better replicate server-side behaviour, and to avoid the blocking with the syncronous version.
+- I opted to use the asynchronous version of [File System's .readFile](https://nodejs.org/api/fs.html#fs_fs_readfile_path_options_callback) in order to better replicate server-side behaviour, and to avoid blocking with the syncronous version.
 
 - Although asynchronous, .readFile is callback based, so I used [util.promisify](https://nodejs.org/dist/latest-v8.x/docs/api/util.html#util_util_promisify_original) to convert .readFile into a function that returns a promise, and therefore more closely resembles an API call.
 
